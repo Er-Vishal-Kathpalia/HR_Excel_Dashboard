@@ -1,0 +1,12 @@
+// EmpCount Takes the Maximum Value from the Quarter.
+DAX Formula Used = CALCULATE(COUNT([EmpID]),FILTER(ALL('HR Data'[Date]),[Date]=MAX([Date])))
+DAX Formula for Active Employees = =CALCULATE([EmpCount],FILTER('HR Data',ISBLANK('HR Data'[TermDate])))
+DAX Formula for NEW HIRES = =CALCULATE(COUNT([EmpID]),FILTER('HR Data','HR Data'[isNewHire]="Yes"))
+
+
+Tenures
+DAX FORMULA IS =CALCULATE(AVERAGE('HR Data'[TenureMonths]),FILTER(ALL('HR Data'[Date]),[Date]=MAX([Date])))
+
+
+Sepearations
+DAX FORMULA IS =CALCULATE(COUNT([EmpID]),FILTER('HR Data',NOT(ISBLANK('HR Data'[TermDate]))))
